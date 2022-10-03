@@ -1,0 +1,48 @@
+<div class="center form-div">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h2 class="form-title ">Register</h2>
+        <div class="form-content">
+
+            <div class="flex-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <div class="flex-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Location</mat-label>
+                    <input matInput formControlName="location" placeholder="TQ" value="TQ" [readonly]="true">
+                </mat-form-field>
+            </div>
+
+            <div class="flex-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="flex-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Time</mat-label>
+                    <mat-select formControlName="time">
+                    <mat-option *ngFor="let time of dayTimes" [value]="time">
+                        {{time}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="form-footer">
+            <button mat-raised-button type="submit" color="primary" [disabled]="!registerForm.valid">Submit</button>
+            <button mat-stroked-button type="button" color="warn" (click)="resetForm()" >Reset</button>
+        </div>
+    </form>
+    
+</div>
