@@ -11,10 +11,12 @@ import { MAT_DATE_LOCALE } from '@angular/material/core'
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
+import { RegisterFormComponent } from './Components/register-form/register-form.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     MatOptionModule,
     MatSelectModule,
     MatButtonModule,
+    HttpClientModule,
   ],
   providers: [
     MatDatepickerModule,
